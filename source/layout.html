@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ store.name }} &mdash; {{ page.name }}</title>
+
+		<meta charset="utf-8">
+		<meta name="description" content="{{ page.meta_description }}">
+		<meta name="keywords" content="{{ page.meta_keywords }}">
+	
+		<link href="//cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet">
+		<link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href="{{ theme | theme_css_url }}" media="screen" rel="stylesheet" type="text/css">
+
+		{{ head_content }}
+	</head>
+
+	<body id="{{ page.permalink }}" class="{{ page.category }}">
+
+		<ul class="main-menu">
+			<li class="main-menu-item">
+				<img src="https://dl.dropboxusercontent.com/u/20104014/ACID/acid-logo-mini.svg" alt="">
+			</li>
+			<li class="main-menu-item">
+				acid
+			</li>
+			<li class="main-menu-item">
+				tshirts
+			</li>
+			<li class="main-menu-item">
+				sweat
+			</li>
+			<li class="main-menu-item">
+				art&bags
+			</li>
+			<li class="main-menu-item">
+				<a href="#sub-menu-artists" class="activate-sub-menu">artists</a>
+			</li>
+			<li class="main-menu-item">
+				contact
+			</li>
+			<li class="main-menu-item">
+				<i class="fa fa-shopping-cart"></i> <a href="/cart">Cart ({{ cart.total | money_with_sign }})</a>
+			</li>
+			<li class="main-menu-item">
+				<i class="fa fa-facebook"></i>
+				<i class="fa fa-twitter"></i>
+			</li>
+		</ul> 
+
+
+		<div id="sub-menu-artists" class="sub-menu">
+			{% if artists.active != blank %}
+			<h3>Artists</h3>
+			<ul>
+				{% for artist in artists.active %}
+				<li><i class="fa fa-user"></i> {{ artist | link_to }}</li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+		</div>
+
+
+
+
+		<h1>{{ page.name }}</h1>
+
+		<div class="page">
+
+			<!-- <header>
+				<a href="/" title="{{ store.name | escape }}">
+					{% if theme.logo != blank %}
+					<img src="{{ theme.logo.url }}" alt="{{ store.name }}">
+					{% else %}
+					{{ store.name }}
+					{% endif %}
+				</a>
+			</header> -->
+
+
+			<!-- <aside>
+				<section>
+					<a href="/cart">Cart ({{ cart.total | money_with_sign }})</a>
+				</section>
+
+				{% if theme.show_search %}
+				<section>
+					<form action="/products" method="get">
+						<label>Search: <input type="text" name="search"></label>
+					</form>
+				</section>
+				{% endif %}
+
+				<nav>
+					<h3>Products</h3>
+					<ul class="unstyled">
+						<li><a href="/products">All</a></li>
+						{% for category in categories.active %}
+						<li>{{ category | link_to }}</li>
+						{% endfor %}
+					</ul>
+				</nav>
+
+				<cite>{{ bigcartel_credit }}</cite>
+			</aside> -->
+
+			<section class="content">
+				
+
+				{% if errors != blank %}
+				<ul class="unstyled errors">
+					{% for error in errors %}
+					<li>{{ error }}</li>
+					{% endfor %}
+				</ul>
+				{% endif %}
+
+				{% if page.category == 'custom' %}
+					{{ page_content | paragraphs }}
+				{% else %}
+					{{ page_content }}
+				{% endif %}
+			</section>
+		</div>
+
+		<footer class="footer-nav">
+			{% if theme.twitter_username != blank %}
+			<p><a href="http://twitter/{{ theme.twitter_username }}">Follow @{{ theme.twitter_username }}</a></p>
+			{% endif %}
+
+			<ul>
+				{% for page in pages.all %}
+				<li>{{ page | link_to }}</li>
+				{% endfor %}
+				<li><a href="/contact">Contact Us</a></li>
+			</ul>
+		</footer>
+		
+
+		<button class="cuts-charts-btn">
+			guide <br>coupe
+		</button>
+
+		<div class="cuts-charts">
+			<a href="#" class="close-btn"><i class="fa fa-close"></i></a>
+			<h3>Comparateur de coupes <br> <small>Models comparator</small></h3>
+
+			<ul class="profiles-list">
+				<li class="profiles-list-item">
+					<img src="https://dl.dropboxusercontent.com/u/20104014/ACID/12978588-guide.png" alt="">
+
+					<ul class="profile-selector">
+						<li>
+							Profil / Profile <br>
+							<input type="radio" name="profile-l" id="paul-l" checked>						
+							<label for="paul-l">Paul <br> <small>1m80 | 65kg</small></label>
+							<input type="radio" name="profile-l" id="julien-l">
+							<label for="julien-l">Julien <br> <small>1m83 | 85kg</small></label>
+							<input type="radio" name="profile-l" id="thierry-l">
+							<label for="thierry-l">Thierry <br> <small>1m80 | 75kg</small></label>
+						</li>
+						<hr>
+						<li>
+							Coupe / Cut<br>
+							<input type="radio" name="cut-l" id="droit-l" checked>	
+							<label for="droit-l">Droit</label>
+							<input type="radio" name="cut-l" id="cintre-l">	
+							<label for="cintre-l">Cintré</label>
+						</li>
+						<li>
+							Taille / Size <br>
+							<input type="radio" name="size-l" id="s-l">	
+							<label for="s-l">S</label>
+							<input type="radio" name="size-l" id="m-l" checked>	
+							<label for="m-l">M</label>
+							<input type="radio" name="size-l" id="l-l">	
+							<label for="l-l">L</label>
+							<input type="radio" name="size-l" id="xl-l">	
+							<label for="xl-l">XL</label>
+						</li>
+					</ul>
+				</li>
+				<li class="profiles-list-item">
+					<img src="https://dl.dropboxusercontent.com/u/20104014/ACID/12978588-guide.png" alt="">
+
+					<ul class="profile-selector">
+						<li>
+							Profil / Profile <br>
+							<input type="radio" name="profile-r" id="paul-r" checked>						
+							<label for="paul-r">Paul <br> <small>1m80 | 65kg</small></label>
+							<input type="radio" name="profile-r" id="julien-r">
+							<label for="julien-r">Julien <br> <small>1m83 | 85kg</small></label>
+							<input type="radio" name="profile-r" id="thierry-r">
+							<label for="thierry-r">Thierry <br> <small>1m80 | 75kg</small></label>
+						</li>
+						<hr>
+						<li>
+							Coupe / Cut<br>
+							<input type="radio" name="cut-r" id="droit-r">	
+							<label for="droit-r">Droit</label>
+							<input type="radio" name="cut-r" id="cintre-r" checked>	
+							<label for="cintre-r">Cintré</label>
+						</li>
+						<li>
+							Taille / Size <br>
+							<input type="radio" name="size-r" id="s-r">	
+							<label for="s-r">S</label>
+							<input type="radio" name="size-r" id="m-r" checked>	
+							<label for="m-r">M</label>
+							<input type="radio" name="size-r" id="l-r">	
+							<label for="l-r">L</label>
+							<input type="radio" name="size-r" id="xl-r">	
+							<label for="xl-r">XL</label>
+						</li>
+					</ul>
+				</li>
+			</ul>
+
+		</div>
+
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
+		<script src="{{ theme | theme_js_url }}" type="text/javascript"></script>
+	</body>
+</html>

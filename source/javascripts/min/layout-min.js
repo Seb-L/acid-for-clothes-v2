@@ -1,0 +1,1 @@
+jQuery(document).ready(function($){$(".activate-sub-menu").click(function(e){e.preventDefault();var s=$($(this).attr("href"));s.hasClass("open")?s.removeClass("open"):s.addClass("open")}),$(".cuts-charts-btn, .cuts-charts .close-btn").click(function(e){e.preventDefault();var s=$(".cuts-charts");s.hasClass("open")?s.removeClass("open"):s.addClass("open")})});

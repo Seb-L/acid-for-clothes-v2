@@ -1,0 +1,13 @@
+.product-page{
+	@include container;
+	background-color: white;
+	padding: 2rem;
+	
+	.product-images{
+		@include span(2 of 4);
+		text-align: center;
+	}
+	.product-details{
+		@include span(2 of 4 last);
+	}
+}
