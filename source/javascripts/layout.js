@@ -32,4 +32,21 @@ jQuery(document).ready(function($) {
 
 });
 
+angular.module('acidApp', []).config(['$interpolateProvider', 
+	function ($interpolateProvider) { 
+		$interpolateProvider.startSymbol('[['); 
+		$interpolateProvider.endSymbol(']]'); 
+	}
+]); 
 
+function cutGuideCtrl($scope){
+
+	$scope.profileL = 'paul';
+	$scope.cutL = 'droit';
+	$scope.sizeL = 's';
+
+	$scope.profileR = 'paul';
+	$scope.cutR = 'droit';
+	$scope.sizeR = 's';
+
+}

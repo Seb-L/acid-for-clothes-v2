@@ -152,7 +152,7 @@ button {
   position: fixed;
   top: 0;
   left: 0;
-  padding: 10vh 10vw;
+  padding: 5vh 5vw;
   width: 100vw;
   height: 100vh;
   -webkit-transform: scale(1.1) perspective(1000rem);
@@ -177,7 +177,7 @@ button {
     font-size: 3rem; }
   .cuts-charts h3 {
     font-size: 2.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     text-transform: uppercase;
     line-height: 2rem; }
     .cuts-charts h3 small {
@@ -194,7 +194,8 @@ button {
       clear: both; }
     .cuts-charts .profiles-list-item {
       width: 47.3684210526%;
-      float: left; }
+      float: left;
+      vertical-align: bottom; }
       .cuts-charts .profiles-list-item:nth-child(2n + 1) {
         margin-left: 0;
         margin-right: -100%;
@@ -207,8 +208,10 @@ button {
       .cuts-charts .profiles-list-item img {
         -moz-box-sizing: border-box;
              box-sizing: border-box;
-        max-width: 100%;
-        height: auto; }
+        width: auto;
+        max-height: 50vh;
+        display: block;
+        margin: 0 auto; }
     .cuts-charts .profiles-list .profile-selector {
       font-size: 0.9rem;
       padding: 1rem;
@@ -218,6 +221,11 @@ button {
         display: inline-block; }
         .cuts-charts .profiles-list .profile-selector li:first-child {
           display: block; }
+        .cuts-charts .profiles-list .profile-selector li img {
+          -moz-box-sizing: border-box;
+               box-sizing: border-box;
+          max-width: 100%;
+          height: auto; }
     .cuts-charts .profiles-list button {
       margin: 0;
       font-size: 0.8rem;
