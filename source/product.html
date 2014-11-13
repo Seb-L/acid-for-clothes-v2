@@ -18,16 +18,16 @@
 			{% case product.status %}
 	
 				{% when 'sold-out' %}
-					<h5>{{ product.default_price | money_with_sign }} <em>Sold Out</em></h5>
+					<h5 class="price">{{ product.default_price | money_with_sign }} <em>Sold Out</em></h5>
 	
 				{% when 'coming-soon' %}
-					<h5>{{ product.default_price | money_with_sign }} <em>Coming Soon</em></h5>
+					<h5 class="price">{{ product.default_price | money_with_sign }} <em>Coming Soon</em></h5>
 	
 				{% when 'active' %}
 
-					<h5>{{ product.default_price | money_with_sign }}{% if product.on_sale %} <em>On Sale{% endif %}</em></h5>
+					
 				
-					<h5>Availability</h5>
+					<!-- <h5>Availability</h5>
 	
 					<ul class="unstyled availability">
 						{% for option in product.options %}
@@ -39,19 +39,30 @@
 							</b>
 						</li>
 						{% endfor %}
-					</ul>
-	
+					</ul> -->
+					
+					<h5 class="price">{{ product.default_price | money_with_sign }}{% if product.on_sale %} <em>On Sale{% endif %}</em></h5>
+					
+					Choisissez une option / Select an option: <br>
+					<div class="select-buy">
 					<form method="post" action="/cart">
-						{% if product.has_default_option %}
-						{{ product.option | hidden_option_input }}
-						{% else %}
-						<div>
-						{{ product.options_in_stock | options_select }}
+						<div class="select-model">
+							{% if product.has_default_option %}
+								{{ product.option | hidden_option_input }}
+							{% else %}
+							
+							{{ product.options_in_stock | options_select }}
+							
+							{% endif %}
 						</div>
-						{% endif %}
 	
 						<button name="submit" type="submit" title="Add to Cart">Add to Cart</button>
+
 					</form>
+					</div>
+					
+					
+
 			{% endcase %}
 		</aside>
 	
