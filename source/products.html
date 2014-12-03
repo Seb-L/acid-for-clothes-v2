@@ -1,5 +1,7 @@
 {% paginate products from products.current by theme.products_per_page %}
 
+<h1>{{ page.name }}</h1>
+
 {% if products != blank %}
 <ul class="product-list">
 

@@ -1,5 +1,18 @@
 jQuery(document).ready(function($) {
+
+	new WOW().init();
+
+	// Product
+	$('.product-images').on('click', 'a', function(event){
+		event.preventDefault();
+
+		$('.primary_image').prop('src', $(this).prop('href'));
+		$('.product-images li.selected').removeClass('selected');
+		$(this).closest('li').addClass('selected');
+	});
 	
+
+
 	// submenus
 	$('.activate-sub-menu').click(function(e){
 		e.preventDefault();

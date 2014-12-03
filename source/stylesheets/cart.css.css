@@ -1,0 +1,8 @@
+.cart-list {
+  background-color: #fff; }
+
+.cart-list {
+  display: table; }
+  .cart-list .item-image {
+    display: table-cell;
+    width: 25%; }

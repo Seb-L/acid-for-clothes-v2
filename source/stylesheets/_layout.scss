@@ -56,16 +56,27 @@ button{
 	background-color: rgba(#fff, 0.95);
 	border-bottom: 1px solid $main-color;
 	color: black;
+	font-size: 0.8rem;
+
+	text-align: right;
 
 	&-item{
 		z-index: 999;
 		position: relative;
 		display: inline-block;
-		display: table-cell;
+		// display: table-cell;
 		text-align: center;
 		text-transform: uppercase;
 		vertical-align: middle;
 
+		margin-left: 1.5rem;
+		
+		&:first-child{
+			line-height: 1;
+			text-align: left;
+			float: left;
+			margin-left: 0;
+		}
 		a{
 			line-height: 3rem;
 			display: inline-block;
@@ -133,7 +144,9 @@ button{
 	padding-top: 0;
 	text-align: left;
 }
-
+.content{
+	text-align: center;	
+}
 .footer-nav{
 	margin-bottom: 1rem;
 

@@ -12,17 +12,50 @@
 			height: auto;
 			box-sizing: border-box;
 		}
+		.unstyled{
+			text-align: left;
+			position: relative;
+			top: -4rem;
+			left: 4rem;
+			font-size: 0;
+
+			li{
+				display: inline-block;
+				border: 1px solid #e6e6e6;
+			}
+			.selected{
+				border-color: black;
+			}
+		}
 	}
 
 	.product-details{
 		@include span(2 of 4 last);
 		text-align: center;
 		position: relative;
+		
+		vertical-align: middle;
+
+		aside{
+			display: table;
+			width: 100%;
+			height: 100%;
+			vertical-align: middle;
+		}
+		h1{
+			margin: 0;
+			margin-top: 4rem;
+		}
+	}
+	.on-sale{
+		position: absolute;
+		top: 0;
+		right: 0;
 	}
 	.price{
 		font-size: 3rem;
 		font-weight: 100;
-		margin: 2rem 0;
+		margin: 2rem 0 2rem 0;
 		color: #acacac;
 
 		em{
@@ -42,7 +75,7 @@
 		
 		.select-model{
 			float: left;
-			width: calc(100% - 9rem);
+			width: calc(100% - 10rem);
 			position: relative;
 
 			&:before{
@@ -81,7 +114,22 @@
 			border-radius: 0.3rem;
 			border-top-left-radius: 0;
 			border-bottom-left-radius: 0;
-			width: 9rem;
+			width: 10rem;
 		}
+	}
+}
+.same-artist{
+	@include span(1 of 1);
+	margin-top: 2rem;
+
+	h2{
+		text-align: left;
+		font-size: 1rem;
+		background-color: black;
+		color: white;
+		display: inline-block;
+		text-transform: uppercase;
+		padding: 0.5rem 1rem;
+		margin-bottom: 2rem;
 	}
 }
