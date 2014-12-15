@@ -28,6 +28,9 @@
 				<a href="/">Acid</a>
 			</li>
 			<li class="main-menu-item">
+				<a href="#sub-menu-artists" class="activate-sub-menu">Artists</a>
+			</li>
+			<li class="main-menu-item">
 				<a href="/category/homme">T-shirts Homme</a>
 			</li>
 			<li class="main-menu-item">
@@ -40,10 +43,7 @@
 				<a href="/">Art & Bags</a>
 			</li>
 			<li class="main-menu-item">
-				<a href="#sub-menu-artists" class="activate-sub-menu">Artists</a>
-			</li>
-			<li class="main-menu-item">
-				<a href="/">Contact</a>
+				<a href="/contact">Contact</a>
 			</li>
 			<li class="main-menu-item">
 				<i class="fa fa-shopping-cart"></i> <a href="/cart"> {{ cart.total | money_with_sign }}</a>
@@ -141,7 +141,6 @@
 				{% endif %}
 			</section>
 		</div>
-
 		<footer class="footer-nav">
 			{% if theme.twitter_username != blank %}
 			<p><a href="http://twitter/{{ theme.twitter_username }}">Follow @{{ theme.twitter_username }}</a></p>
