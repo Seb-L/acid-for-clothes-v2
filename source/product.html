@@ -1,8 +1,8 @@
 {% assign currentCat = product.categories | first %}
 
-<article class="product-page">
+<article class="product-page" style="background-image: url({{ product.image | product_image_url }})">
 
-	<section class="product-images wow fadeIn">
+	<!-- <section class="product-images wow fadeIn">
 		<img src="{{ product.image | product_image_url }}" alt="Image of {{ product.name | escape }}" class="primary_image">
 	
 		{% if product.images.size > 1 %}
@@ -16,9 +16,9 @@
 			{% endfor %}
 		</ul>
 		{% endif %}
-	</section>
+	</section> -->
 	
-	<section class="product-details">
+	<!-- <section class="product-details">
 
 		<aside>
 			<h1>{{ page.name }}</h1>
@@ -32,21 +32,7 @@
 	
 				{% when 'active' %}
 
-					
 				
-					<!-- <h5>Availability</h5>
-	
-					<ul class="unstyled availability">
-						{% for option in product.options %}
-						<li>
-							{% unless product.has_default_option %}<span>{{ option.name }}</span>{% endunless %}
-							<span>{% if option.sold_out %}Sold Out{% endif %}</span>
-							<b>
-								<b style="width:{{ option.inventory }}%"></b>
-							</b>
-						</li>
-						{% endfor %}
-					</ul> -->
 					{% if product.on_sale %}<div class="on-sale">On Sale</div>{% endif %}
 
 					{% if product.description != blank %}
@@ -77,10 +63,149 @@
 
 			{% endcase %}
 		</aside>
-	</section>
+	</section> -->
+
+
+
+
+	<div class="product-infos">  
+
+		<a href="#" class="sizes-chart cuts-charts-btn">
+		<i class="ion-tshirt"></i>
+		Sizes<br>chart
+		</a>
+
+		<div class="price-tag">
+			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/154694/price-tag_copy.svg" alt="" />
+			
+			<form method="post" action="/cart">
+				<p>
+					{{ page.name }}
+					<br>
+					{{ product.default_price | money_with_sign }}
+					<br>
+
+					<!-- <select name="sizes" id="sizes">
+
+						{{ product.options_in_stock | options_select }}
+					
+					</select> -->
+				</p>
+					<div class="select-model">
+						{% if product.has_default_option %}
+							{{ product.option | hidden_option_input }}
+						{% else %}
+						
+						{{ product.options_in_stock | options_select }}
+						
+						{% endif %}
+					</div>
+				
+				<!-- <a href="#" class="add-to-cart"><i class="ion-android-cart"></i> ADD TO CART</a> -->
+				<button name="submit" type="submit" title="Add to Cart" class="add-to-cart">
+					<i class="ion-android-cart"></i> ADD TO CART
+				</button>
+			</form>
+		</div>
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+		<div class="cuts-charts" ng-app="acidApp" ng-controller="cutGuideCtrl">
+			<a href="#" class="close-btn"><i class="fa fa-close"></i></a>
+			<h3>Comparateur de coupes <br> <small>Models comparator</small></h3>
+
+			<ul class="profiles-list">
+				<li class="profiles-list-item">
+					<img src="https://dl.dropboxusercontent.com/u/20104014/ACID/guide-coupe/[[profileL]]-[[cutL]]-[[sizeL]].png" alt="">
+
+					<ul class="profile-selector">
+						<li>
+							Profil / Profile <br>
+							<input type="radio" name="profile-l" id="paul-l" value="paul" ng-model="profileL">
+							<label for="paul-l">Paul <br> <small>1m80 | 65kg</small></label>
+							<input type="radio" name="profile-l" id="julien-l" value="julien" ng-model="profileL">
+							<label for="julien-l">Julien <br> <small>1m83 | 85kg</small></label>
+							<input type="radio" name="profile-l" id="thierry-l" value="thierry" ng-model="profileL">
+							<label for="thierry-l">Thierry <br> <small>1m80 | 75kg</small></label>
+						</li>
+						<hr>
+						<li>
+							Coupe / Cut<br>
+							<input type="radio" name="cut-l" id="droit-l" value="droit" ng-model="cutL">	
+							<label for="droit-l">Droit</label>
+							<input type="radio" name="cut-l" id="cintre-l" value="cintre" ng-model="cutL">	
+							<label for="cintre-l">Cintré</label>
+						</li>
+						<li>
+							Taille / Size <br>
+							<input type="radio" name="size-l" id="s-l" value="s" ng-model="sizeL">	
+							<label for="s-l">S</label>
+							<input type="radio" name="size-l" id="m-l" value="m" ng-model="sizeL">	
+							<label for="m-l">M</label>
+							<input type="radio" name="size-l" id="l-l" value="l" ng-model="sizeL">	
+							<label for="l-l">L</label>
+						</li>
+					</ul>
+				</li>
+				<li class="profiles-list-item">
+					<img src="https://dl.dropboxusercontent.com/u/20104014/ACID/guide-coupe/[[profileR]]-[[cutR]]-[[sizeR]].png" alt="">
+
+					<ul class="profile-selector">
+						<li>
+							Profil / Profile <br>
+							<input type="radio" name="profile-r" id="paul-r" value="paul" ng-model="profileR">
+							<label for="paul-r">Paul <br> <small>1m80 | 65kg</small></label>
+							<input type="radio" name="profile-r" id="julien-r" value="julien" ng-model="profileR">
+							<label for="julien-r">Julien <br> <small>1m83 | 85kg</small></label>
+							<input type="radio" name="profile-r" id="thierry-r" value="thierry" ng-model="profileR">
+							<label for="thierry-r">Thierry <br> <small>1m80 | 75kg</small></label>
+						</li>
+						<hr>
+						<li>
+							Coupe / Cut<br>
+							<input type="radio" name="cut-r" id="droit-r" value="droit" ng-model="cutR">	
+							<label for="droit-r">Droit</label>
+							<input type="radio" name="cut-r" id="cintre-r" value="cintre" ng-model="cutR">	
+							<label for="cintre-r">Cintré</label>
+						</li>
+						<li>
+							Taille / Size <br>
+							<input type="radio" name="size-r" id="s-r" value="s" ng-model="sizeR">	
+							<label for="s-r">S</label>
+							<input type="radio" name="size-r" id="m-r" value="m" ng-model="sizeR">	
+							<label for="m-r">M</label>
+							<input type="radio" name="size-r" id="l-r" value="l" ng-model="sizeR">	
+							<label for="l-r">L</label>
+						</li>
+					</ul>
+				</li>
+			</ul>
+
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
 </article>
 
-<div class="same-artist">
+<div class="same-artist small-block-grid-6">
 	{% for artist in product.artists %}
 		{% if forloop.first %}
 	

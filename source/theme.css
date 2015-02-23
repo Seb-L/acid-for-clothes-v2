@@ -1,7 +1,6 @@
 body {
   font-family: sans-serif;
   background-image: url(https://d1j5c7u4mzbpxw.cloudfront.net/bigcartel/theme_images/4891017/max_h-1000+max_w-1000/bg.jpeg);
-  padding-top: 5rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center; }
@@ -36,6 +35,20 @@ button {
   -moz-osx-font-smoothing: grayscale; }
   button:hover {
     background-color: #333333; }
+
+.top-bar {
+  background-color: #ecf0f1;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid #ecf0f1; }
+  .top-bar a {
+    text-transform: uppercase !important;
+    background-color: transparent !important;
+    color: black !important; }
+    .top-bar a:after {
+      border-top-color: black; }
+
+.top-bar-section ul li {
+  background-color: transparent !important; }
 
 .main-menu {
   z-index: 999;
@@ -134,21 +147,6 @@ button {
   margin-bottom: 1rem; }
   .footer-nav li {
     display: inline-block; }
-
-.cuts-charts-btn {
-  -webkit-transition: all 300ms ease;
-          transition: all 300ms ease;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  border-top-left-radius: 100%;
-  font-size: 0.8rem;
-  width: 6rem;
-  height: 6rem;
-  display: inline-block;
-  padding: 2rem 0 0 1rem;
-  margin: 0;
-  outline: none; }
 
 .cuts-charts {
   -webkit-transition: all 300ms ease;
@@ -258,6 +256,11 @@ button {
       border-top: 1px solid #333333;
       margin: 1rem auto; }
 
+.page,
+.content {
+  height: 100%;
+  padding: 0; }
+
 .product-list {
   max-width: 100%;
   margin-left: auto;
@@ -270,7 +273,7 @@ button {
 .product {
   width: 23.0769230769%;
   float: left;
-  height: 23vw;
+  height: 25vw;
   background-color: white;
   padding: 1rem;
   -moz-box-sizing: border-box;
@@ -373,20 +376,29 @@ button {
     background-color: #333333; }
 
 .product-page {
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
   background-color: white;
-  padding: 2rem; }
-  .product-page:after {
-    content: " ";
-    display: block;
-    clear: both; }
+  height: 100%;
+  padding: 2rem;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-repeat: no-repeat;
+  background-position: 25% center;
+  background-size: 50%; }
   .product-page .product-images {
-    width: 47.3684210526%;
-    float: left;
-    margin-right: 5.2631578947%;
-    text-align: center; }
+    text-align: center;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1; }
     .product-page .product-images img {
       max-width: 100%;
       height: auto;
@@ -404,11 +416,30 @@ button {
       .product-page .product-images .unstyled .selected {
         border-color: black; }
   .product-page .product-details {
-    width: 47.3684210526%;
-    float: right;
-    margin-right: 0;
+    margin-left: 60%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background-color: black;
+    color: white;
+    padding: 3rem;
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
     text-align: center;
     position: relative;
+    margin-left: 3rem;
     vertical-align: middle; }
     .product-page .product-details aside {
       display: table;
@@ -416,24 +447,11 @@ button {
       height: 100%;
       vertical-align: middle; }
     .product-page .product-details h1 {
-      margin: 0;
-      margin-top: 4rem; }
+      margin: 0; }
   .product-page .on-sale {
     position: absolute;
     top: 0;
     right: 0; }
-  .product-page .price {
-    font-size: 3rem;
-    font-weight: 100;
-    margin: 2rem 0 2rem 0;
-    color: #acacac; }
-    .product-page .price em {
-      background-color: black;
-      font-size: 1rem;
-      padding: 0.5rem 1rem;
-      position: absolute;
-      top: 0;
-      right: 0; }
   .product-page .select-buy {
     clear: both;
     height: 3rem;
@@ -476,6 +494,92 @@ button {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
       width: 10rem; }
+
+.product-infos {
+  position: absolute;
+  right: 15%;
+  top: 15%;
+  display: inline-block;
+  line-height: 0; }
+  .product-infos select {
+    margin: 0; }
+
+.price-tag {
+  width: 140px;
+  position: relative;
+  z-index: 1; }
+  .price-tag img {
+    display: block;
+    position: relative;
+    bottom: -1px;
+    width: 140px; }
+  .price-tag p {
+    background-color: #E6E6E6;
+    padding: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 0; }
+    .price-tag p select {
+      width: 100%;
+      margin-top: 1rem; }
+  .price-tag .price {
+    padding: 0.5rem 0; }
+  .price-tag .add-to-cart {
+    background-color: black;
+    padding: 1rem 0;
+    margin: 0;
+    width: 100%;
+    display: block;
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    font-size: 0.8rem; }
+
+.sizes-chart {
+  -webkit-transition: all 300ms ease;
+          transition: all 300ms ease;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  background-color: #404040;
+  color: white;
+  position: absolute;
+  height: 9rem;
+  top: 6rem;
+  right: 0;
+  padding: 0.5rem;
+  line-height: 1rem;
+  z-index: 0;
+  -webkit-transform-origin: right top;
+      -ms-transform-origin: right top;
+          transform-origin: right top;
+  -webkit-transform: rotateZ(-27deg);
+          transform: rotateZ(-27deg);
+  text-decoration: none; }
+  .sizes-chart i {
+    margin: 0 auto;
+    margin-bottom: 0.25rem; }
+  .sizes-chart:hover {
+    -webkit-transition: all 300ms ease;
+            transition: all 300ms ease;
+    -webkit-transform: rotateZ(-32deg);
+            transform: rotateZ(-32deg); }
 
 .same-artist {
   width: 100%;
